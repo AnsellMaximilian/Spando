@@ -1,7 +1,7 @@
 import Link from "next/link";
 import BrandSVG from "./BrandSVG";
 
-export default function Header() {
+export default function Header({ home }) {
   return (
     <header className="shadow-md">
       <nav className="flex container mx-auto p-4">
@@ -13,7 +13,7 @@ export default function Header() {
         <ul className="flex items-center ml-3">
           <li className="ml-3 text-gray-600 hover:text-black">
             <Link href="/">
-              <a>Home</a>
+              <a className={home ? "text-black font-semibold" : ""}>Home</a>
             </Link>
           </li>
           <li className="ml-3 text-gray-600 hover:text-black">

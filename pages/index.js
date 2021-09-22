@@ -7,7 +7,7 @@ import FeaturedPostCard from "../components/Blog/FeaturedPostCard";
 import Panel from "../components/Panel";
 export default function Home() {
   return (
-    <Layout>
+    <Layout home>
       <Hero />
       <div className="container px-4 mx-auto mt-16 grid grid-cols-12 gap-4">
         <main className="grid grid-cols-12 gap-4 col-span-12 lg:col-span-8">
