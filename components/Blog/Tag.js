@@ -1,8 +1,12 @@
 import Link from "next/link";
-export default function Tag({ name }) {
+export default function Tag({ name, variant }) {
+  const additionalClasses =
+    variant === "big" ? "px-4 py-2 text-lg" : "px-2 py-1";
   return (
     <Link href="/">
-      <a className="bg-gray-200 px-2 py-1 rounded-xl text-gray-600 text-sm hover:underline">
+      <a
+        className={`bg-gray-200 px-2 py-1 rounded-xl text-gray-600 text-sm hover:underline ${additionalClasses}`}
+      >
         {name}
       </a>
     </Link>
