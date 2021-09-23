@@ -55,10 +55,10 @@ export default function Home({ post, tags, similarPosts }) {
   return (
     <Layout posts>
       <div className="container mx-auto px-4 grid grid-cols-12 gap-4 mt-8">
-        <main className="col-span-8">
+        <main className="col-span-12 md:col-span-8">
           <Post post={post} />
         </main>
-        <Panel classes="col-span-4">
+        <Panel classes="col-span-12 md:col-span-4">
           <aside className="">
             {similarPosts.length > 0 && (
               <article>
