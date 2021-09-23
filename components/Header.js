@@ -17,7 +17,7 @@ export default function Header({ home, posts }) {
             </Link>
           </li>
           <li className="ml-3 text-gray-600 hover:text-black">
-            <Link href="/">
+            <Link href="/posts">
               <a className={posts ? "text-black font-semibold" : ""}>Posts</a>
             </Link>
           </li>

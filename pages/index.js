@@ -63,7 +63,7 @@ export default function Home({ posts, tags }) {
             );
           })}
           <div className="col-span-12 text-center">
-            <Link href="/">
+            <Link href="/posts">
               <a className="text-red-600 hover:underline font-semibold text-lg uppercase">
                 View more posts
               </a>
