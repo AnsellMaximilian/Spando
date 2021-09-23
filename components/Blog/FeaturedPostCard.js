@@ -2,12 +2,12 @@ import Tag from "./Tag";
 import Link from "next/link";
 import Panel from "../Panel";
 
-export default function PostCard({ title, excerpt, date, tags }) {
+export default function PostCard({ title, excerpt, date, tags, slug }) {
   return (
     <Panel classes="col-span-12 p-6">
       <article>
         <div className="text-red-600 text-xl font-bold">FEATURED</div>
-        <Link href="/">
+        <Link href={`/posts/${slug}`}>
           <a>
             <h2 className="text-4xl font-bold hover:underline">{title}</h2>
             <p className="mt-2 text-xl">{excerpt}</p>
