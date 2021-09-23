@@ -1,5 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
+import Link from "next/link";
 const options = {
   renderMark: {
     // [MARKS.BOLD]: function Bold(text) {
@@ -12,6 +13,17 @@ const options = {
     },
     [BLOCKS.UL_LIST]: function UnorderedList(node, children) {
       return <ul>{children}</ul>;
+    },
+    [INLINES.EMBEDDED_ENTRY]: function InlineEntry({ data }, children) {
+      const content = data.target;
+      if (content.sys.contentType.sys.id === "blogPost") {
+        return (
+          <Link href={`/posts/${content.fields.slug}`}>
+            <a>{content.fields.title}</a>
+          </Link>
+        );
+      }
+      return "FAG";
     },
 
     [BLOCKS.OL_LIST]: function OrderedList(node, children) {
