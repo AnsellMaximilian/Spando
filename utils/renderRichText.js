@@ -30,7 +30,7 @@ const options = {
       return <ol className="bg-red-500">{children}</ol>;
     },
     [BLOCKS.PARAGRAPH]: function Paragraph(node, children) {
-      return <p className="mt-3">{children}</p>;
+      return <p className="mt-3 text-lg">{children}</p>;
     },
     [BLOCKS.HEADING_2]: function Heading(node, children) {
       return <h4 className="font-bold mt-6 text-3xl">{children}</h4>;

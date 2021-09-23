@@ -8,11 +8,11 @@ export default function Home({ post }) {
   const {
     fields: { title, tags, body },
   } = post;
-  console.log(body);
+  // console.log(body);
   return (
-    <article className="container px-4 mx-auto">
+    <article className="max-w-xl ml-auto">
       <h1 className="font-bold text-4xl">{title}</h1>
-      <div>
+      <div className="mt-4">
         {tags.map((tag) => {
           const {
             sys: { id },
@@ -21,7 +21,7 @@ export default function Home({ post }) {
           return <Tag name={name} key={id} />;
         })}
       </div>
-      <section>{reactRichTextRenderer(body)}</section>
+      <section className="mt-4">{reactRichTextRenderer(body)}</section>
     </article>
   );
 }

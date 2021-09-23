@@ -21,10 +21,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { posts, tags } = await getPostsAndTags();
+  const mainPost = posts.items.find((post) => post.fields.slug === params.slug);
   return {
     props: {
-      post: posts.items.find((post) => post.fields.slug === params.slug),
+      post: mainPost,
       tags: tags.items,
+      similarPosts: posts.items.filter(
+        (post) =>
+          post.fields.slug !== params.slug &&
+          post.fields.tags.some((tag) => mainPost.fields.tags.includes(tag))
+      ),
     },
   };
 }
@@ -46,10 +52,42 @@ async function getPostsAndTags() {
   return { posts, tags };
 }
 
-export default function Home({ post, tags }) {
+export default function Home({ post, tags, similarPosts }) {
+  console.log(similarPosts);
   return (
     <Layout posts>
-      <Post post={post} />
+      <div className="container mx-auto px-4 grid grid-cols-12 gap-4 mt-8">
+        <main className="col-span-8">
+          <Post post={post} />
+        </main>
+        <Panel classes="col-span-4">
+          <aside className="">
+            <article>
+              <div className="text-xl font-bold">Mirip</div>
+              <section>
+                {similarPosts.map((post) => {
+                  const {
+                    sys: { id },
+                    fields: { title, excerpt },
+                  } = post;
+                  return (
+                    <Link href="/" key={id}>
+                      <a className="col-span-12 md:col-span-6 lg:col-span-12">
+                        <article className="mb-4">
+                          <h2 className="text-lg font-bold hover:underline">
+                            {title}
+                          </h2>
+                          <p className="mt-2">{excerpt}</p>
+                        </article>
+                      </a>
+                    </Link>
+                  );
+                })}
+              </section>
+            </article>
+          </aside>
+        </Panel>
+      </div>
     </Layout>
   );
 }
