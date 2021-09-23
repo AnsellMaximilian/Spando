@@ -1,6 +1,7 @@
 import Tag from "./Tag";
 import Link from "next/link";
 import Panel from "../Panel";
+import moment from "moment";
 
 export default function PostCard({ title, excerpt, date, tags, slug }) {
   return (
@@ -13,7 +14,7 @@ export default function PostCard({ title, excerpt, date, tags, slug }) {
           </a>
         </Link>
         <span className="text-sm text-gray-500 font-normal mt-2 uppercase">
-          {date}
+          {moment(date).fromNow()}
         </span>
         <div className="flex gap-2 flex-wrap mt-2">
           {tags.map((tag) => (

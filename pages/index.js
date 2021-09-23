@@ -48,7 +48,7 @@ export default function Home({ posts, tags }) {
                 title={title}
                 excerpt={excerpt}
                 slug={slug}
-                date={new Date(date).toDateString().slice(4)}
+                date={date}
                 tags={tags.map((tag) => tag.fields.name)}
               />
             ) : (
@@ -57,7 +57,7 @@ export default function Home({ posts, tags }) {
                 title={title}
                 slug={slug}
                 excerpt={excerpt}
-                date={new Date(date).toDateString().slice(4)}
+                date={date}
                 tags={tags.map((tag) => tag.fields.name)}
               />
             );
