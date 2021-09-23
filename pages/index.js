@@ -7,6 +7,7 @@ import PostCard from "../components/Blog/PostCard";
 import Link from "next/link";
 import FeaturedPostCard from "../components/Blog/FeaturedPostCard";
 import Panel from "../components/Panel";
+import PostLink from "../components/Blog/PostLink";
 
 export async function getStaticProps(context) {
   const client = createClient({
@@ -72,7 +73,7 @@ export default function Home({ posts, tags }) {
         <Panel classes="col-span-12 lg:col-span-4">
           <aside>
             <article>
-              <h3 className="text-xl font-bold">Browse by Tags</h3>
+              <h3 className="text-xl font-semibold">Browse by Tags</h3>
               <div className="flex flex-wrap gap-2 mt-2">
                 {tags.map((tag) => {
                   const {
@@ -84,7 +85,7 @@ export default function Home({ posts, tags }) {
               </div>
             </article>
             <article className="col-span-12 pt-8">
-              <h3 className="text-xl font-bold">Bagus untuk Pemula</h3>
+              <h3 className="text-xl font-semibold">Bagus untuk Pemula</h3>
               <div className="mt-2 grid grid-cols-12">
                 {posts
                   .filter((post) =>
@@ -93,22 +94,7 @@ export default function Home({ posts, tags }) {
                     )
                   )
                   .map((post) => {
-                    const {
-                      sys: { id },
-                      fields: { title, excerpt },
-                    } = post;
-                    return (
-                      <Link href="/" key={id}>
-                        <a className="col-span-12 md:col-span-6 lg:col-span-12">
-                          <article className="mb-4">
-                            <h2 className="text-lg font-bold hover:underline">
-                              {title}
-                            </h2>
-                            <p className="mt-2">{excerpt}</p>
-                          </article>
-                        </a>
-                      </Link>
-                    );
+                    return <PostLink post={post} key={post.sys.id} />;
                   })}
               </div>
             </article>

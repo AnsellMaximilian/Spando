@@ -1,11 +1,9 @@
 import { createClient } from "contentful";
 
 import Layout from "../../components/Layout";
-import Tag from "../../components/Blog/Tag";
-import PostCard from "../../components/Blog/PostCard";
 import Post from "../../components/Blog/Post";
-import Link from "next/link";
 import Panel from "../../components/Panel";
+import PostLink from "../../components/Blog/PostLink";
 
 export async function getStaticPaths() {
   const {
@@ -62,29 +60,16 @@ export default function Home({ post, tags, similarPosts }) {
         </main>
         <Panel classes="col-span-4">
           <aside className="">
-            <article>
-              <div className="text-xl font-bold">Mirip</div>
-              <section>
-                {similarPosts.map((post) => {
-                  const {
-                    sys: { id },
-                    fields: { title, excerpt },
-                  } = post;
-                  return (
-                    <Link href="/" key={id}>
-                      <a className="col-span-12 md:col-span-6 lg:col-span-12">
-                        <article className="mb-4">
-                          <h2 className="text-lg font-bold hover:underline">
-                            {title}
-                          </h2>
-                          <p className="mt-2">{excerpt}</p>
-                        </article>
-                      </a>
-                    </Link>
-                  );
-                })}
-              </section>
-            </article>
+            {similarPosts.length > 0 && (
+              <article>
+                <div className="text-xl font-semibold">Mirip</div>
+                <section className="mt-2">
+                  {similarPosts.map((post) => {
+                    return <PostLink post={post} key={post.sys.id} />;
+                  })}
+                </section>
+              </article>
+            )}
           </aside>
         </Panel>
       </div>
