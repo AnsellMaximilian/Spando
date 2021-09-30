@@ -54,7 +54,7 @@ export default function Home({ post, tags, similarPosts }) {
           <Post post={post} />
         </main>
         <Panel classes="col-span-12 md:col-span-4">
-          <aside>
+          <aside className="sticky top-0">
             {similarPosts.length > 0 && (
               <PostLinkList posts={similarPosts} listTitle="Mirip" />
             )}
