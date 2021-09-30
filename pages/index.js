@@ -1,4 +1,4 @@
-import { createClient } from "contentful";
+import client from "../contentful";
 
 import Layout from "../components/Layout";
 import Tag from "../components/Blog/Tag";
@@ -10,11 +10,6 @@ import Panel from "../components/Panel";
 import PostLink from "../components/Blog/PostLink";
 
 export async function getStaticProps(context) {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
   const posts = await client.getEntries({
     content_type: "blogPost",
   });
@@ -31,7 +26,6 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ posts, tags }) {
-  // console.log({ posts, tags });
   return (
     <Layout home>
       <Hero />
