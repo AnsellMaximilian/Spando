@@ -5,7 +5,7 @@ import FeaturedPostCard from "../../components/Blog/FeaturedPostCard";
 
 export default function PostGrid({ posts }) {
   return (
-    <main className="grid grid-cols-12 gap-4 col-span-12 lg:col-span-8">
+    <main className="grid grid-cols-12 gap-4">
       {posts.slice(0, 10).map((post, index) => {
         const {
           sys: { id },

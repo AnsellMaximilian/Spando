@@ -2,8 +2,6 @@ import reactRichTextRenderer from "../../utils/renderRichText";
 import moment from "moment";
 
 import Tag from "./Tag";
-import Link from "next/link";
-import Panel from "../Panel";
 
 export default function Home({ post }) {
   const {

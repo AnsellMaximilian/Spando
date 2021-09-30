@@ -4,8 +4,8 @@ import Layout from "../components/Layout";
 import Tag from "../components/Blog/Tag";
 import Hero from "../components/Hero";
 import Panel from "../components/Panel";
-import PostLink from "../components/Blog/PostLink";
 import PostGrid from "../components/Blog/PostGrid";
+import PostLinkList from "../components/Blog/PostLinkList";
 
 export async function getStaticProps(context) {
   const posts = await client.getEntries({
@@ -28,7 +28,9 @@ export default function Home({ posts, tags }) {
     <Layout home>
       <Hero />
       <div className="container px-4 mx-auto mt-16 grid grid-cols-12 gap-4">
-        <PostGrid posts={posts} />
+        <div className="col-span-12 lg:col-span-8">
+          <PostGrid posts={posts} />
+        </div>
         <Panel classes="col-span-12 lg:col-span-4">
           <aside>
             <article>
@@ -43,20 +45,16 @@ export default function Home({ posts, tags }) {
                 })}
               </div>
             </article>
-            <article className="col-span-12 pt-8">
-              <h3 className="text-xl font-semibold">Bagus untuk Pemula</h3>
-              <div className="mt-2 grid grid-cols-12">
-                {posts
-                  .filter((post) =>
-                    post.fields.tags.some(
-                      (tag) => tag.fields.name.toLowerCase() === "pemula"
-                    )
+            <div className="pt-8">
+              <PostLinkList
+                listTitle="Bagus untuk Pemula"
+                posts={posts.filter((post) =>
+                  post.fields.tags.some(
+                    (tag) => tag.fields.name.toLowerCase() === "pemula"
                   )
-                  .map((post) => {
-                    return <PostLink post={post} key={post.sys.id} />;
-                  })}
-              </div>
-            </article>
+                )}
+              />
+            </div>
           </aside>
         </Panel>
       </div>

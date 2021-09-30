@@ -4,6 +4,7 @@ import Layout from "../../components/Layout";
 import Post from "../../components/Blog/Post";
 import Panel from "../../components/Panel";
 import PostLink from "../../components/Blog/PostLink";
+import PostLinkList from "../../components/Blog/PostLinkList";
 
 export async function getStaticPaths() {
   const {
@@ -53,16 +54,9 @@ export default function Home({ post, tags, similarPosts }) {
           <Post post={post} />
         </main>
         <Panel classes="col-span-12 md:col-span-4">
-          <aside className="">
+          <aside>
             {similarPosts.length > 0 && (
-              <article>
-                <div className="text-xl font-semibold">Mirip</div>
-                <section className="mt-2">
-                  {similarPosts.map((post) => {
-                    return <PostLink post={post} key={post.sys.id} />;
-                  })}
-                </section>
-              </article>
+              <PostLinkList posts={similarPosts} listTitle="Mirip" />
             )}
           </aside>
         </Panel>
