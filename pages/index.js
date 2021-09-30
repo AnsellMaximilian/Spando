@@ -39,9 +39,9 @@ export default function Home({ posts, tags }) {
                 {tags.map((tag) => {
                   const {
                     sys: { id },
-                    fields: { name },
+                    fields: { name, slug },
                   } = tag;
-                  return <Tag key={id} name={name} variant="big" />;
+                  return <Tag key={id} name={name} slug={slug} variant="big" />;
                 })}
               </div>
             </article>
