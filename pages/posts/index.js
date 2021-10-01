@@ -3,10 +3,9 @@ import { createClient } from "contentful";
 import Layout from "../../components/Layout";
 import Tag from "../../components/Blog/Tag";
 import PostCard from "../../components/Blog/PostCard";
-import Link from "next/link";
-import FeaturedPostCard from "../../components/Blog/FeaturedPostCard";
 import Panel from "../../components/Panel";
 import PostLink from "../../components/Blog/PostLink";
+import PostLinkList from "../../components/Blog/PostLinkList";
 
 export async function getStaticProps(context) {
   const client = createClient({
@@ -76,20 +75,15 @@ export default function PostList({ posts, tags }) {
         )}
         <Panel classes="col-span-12 lg:col-span-4">
           <aside>
-            <article className="col-span-12">
-              <h3 className="text-xl font-semibold">Bagus untuk Pemula</h3>
-              <div className="mt-2 grid grid-cols-12">
-                {posts
-                  .filter((post) =>
-                    post.fields.tags.some(
-                      (tag) => tag.fields.name.toLowerCase() === "pemula"
-                    )
-                  )
-                  .map((post) => {
-                    return <PostLink post={post} key={post.sys.id} />;
-                  })}
-              </div>
-            </article>
+            <PostLinkList
+              listTitle="Bagus untuk Pemula"
+              posts={posts.filter((post) =>
+                post.fields.tags.some(
+                  (tag) => tag.fields.name.toLowerCase() === "pemula"
+                )
+              )}
+              listItemClasses="col-span-12 md:col-span-6 lg:col-span-12"
+            />
           </aside>
         </Panel>
       </div>
