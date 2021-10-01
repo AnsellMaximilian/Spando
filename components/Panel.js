@@ -1,7 +1,7 @@
 export default function Panel({ children, classes }) {
   return (
     <div
-      className={`bg-gray-50 p-4 shadow-md hover:bg-gray-100 rounded-sm ${classes}`}
+      className={`p-4 shadow-md border border-gray-200 rounded-md ${classes}`}
     >
       {children}
     </div>
