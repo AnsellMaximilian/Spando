@@ -37,10 +37,10 @@ const options = {
       return <p className="mt-3 text-lg">{children}</p>;
     },
     [BLOCKS.HEADING_2]: function Heading(node, children) {
-      return <h4 className="font-bold mt-6 text-3xl">{children}</h4>;
+      return <h2 className="font-bold mt-6 text-3xl">{children}</h2>;
     },
     [BLOCKS.HEADING_3]: function Heading(node, children) {
-      return <h4 className="font-bold mt-6 text-2xl">{children}</h4>;
+      return <h3 className="font-bold mt-6 text-2xl">{children}</h3>;
     },
     [BLOCKS.HEADING_4]: function Heading(node, children) {
       return <h4 className="font-bold mt-6 text-xl">{children}</h4>;
