@@ -9,7 +9,11 @@ const options = {
   },
   renderNode: {
     [INLINES.HYPERLINK]: function Hyperlink({ data }, children) {
-      return <a href={data.uri}>{children}</a>;
+      return (
+        <a href={data.uri} className="underline">
+          {children}
+        </a>
+      );
     },
     [BLOCKS.UL_LIST]: function UnorderedList(node, children) {
       return <ul>{children}</ul>;
