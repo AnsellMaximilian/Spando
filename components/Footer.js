@@ -1,5 +1,6 @@
 import BrandSVG from "./BrandSVG";
 import Link from "next/link";
+import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -30,9 +31,39 @@ export default function Footer() {
         <section className="col-span-6 md:col-span-3">
           <div className="font-bold text-sm">ANSELL MAXIMILIAN</div>
           <ul className="mt-2">
-            <li className="">Home</li>
-            <li className="mt-1">Home</li>
-            <li className="mt-1">Home</li>
+            <li className="">
+              <a
+                className="flex items-center hover:underline"
+                href="https://www.linkedin.com/in/ansell-maximilian/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaLinkedin />
+                <span className="ml-2">LinkedIn</span>
+              </a>
+            </li>
+            <li className="mt-1">
+              <a
+                className="flex items-center hover:underline"
+                href="https://github.com/AnsellMaximilian"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGithub />
+                <span className="ml-2">Github</span>
+              </a>
+            </li>
+            <li className="mt-1">
+              <a
+                className="flex items-center hover:underline"
+                href="http://ansellmaximilian.github.io/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGlobe />
+                <span className="ml-2">Website</span>
+              </a>
+            </li>
           </ul>
         </section>
       </div>
