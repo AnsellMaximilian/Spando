@@ -56,7 +56,11 @@ export default function Home({ post, tags, similarPosts }) {
         <Panel classes="col-span-12 md:col-span-4">
           <aside className="sticky top-0">
             {similarPosts.length > 0 && (
-              <PostLinkList posts={similarPosts} listTitle="Mirip" />
+              <PostLinkList
+                posts={similarPosts}
+                listTitle="Mirip"
+                listItemClasses="col-span-12"
+              />
             )}
           </aside>
         </Panel>

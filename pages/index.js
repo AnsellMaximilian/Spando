@@ -48,6 +48,7 @@ export default function Home({ posts, tags }) {
             <div className="pt-8">
               <PostLinkList
                 listTitle="Bagus untuk Pemula"
+                listItemClasses="col-span-12 md:col-span-6 lg:col-span-12"
                 posts={posts.filter((post) =>
                   post.fields.tags.some(
                     (tag) => tag.fields.name.toLowerCase() === "pemula"
