@@ -33,7 +33,7 @@ export default function PostGrid({ posts }) {
       })}
       <div className="col-span-12 text-center">
         <Link href="/posts">
-          <a className="text-red-600 hover:underline font-semibold text-lg uppercase">
+          <a className="bg-red-600 hover:bg-red-700 inline-block px-3 py-2 rounded-md text-white font-semibold text-lg">
             View more posts
           </a>
         </Link>
