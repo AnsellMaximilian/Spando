@@ -1,4 +1,4 @@
-import reactRichTextRenderer from "../../utils/renderRichText";
+import reactRichTextRenderer from "../../src/utils/renderRichText";
 import moment from "moment";
 import Link from "next/link";
 
