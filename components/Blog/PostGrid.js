@@ -1,7 +1,6 @@
 import React from "react";
 import PostCard from "../../components/Blog/PostCard";
 import Link from "next/link";
-import FeaturedPostCard from "../../components/Blog/FeaturedPostCard";
 
 export default function PostGrid({ posts }) {
   return (
@@ -12,13 +11,14 @@ export default function PostGrid({ posts }) {
           fields: { title, excerpt, publishDate: date, tags, slug },
         } = post;
         return index === 0 ? (
-          <FeaturedPostCard
+          <PostCard
             key={id}
             title={title}
             excerpt={excerpt}
             slug={slug}
             date={date}
             tags={tags.map((tag) => tag.fields.name)}
+            featured
           />
         ) : (
           <PostCard
