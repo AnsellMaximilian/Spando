@@ -5,7 +5,7 @@ export default function Tag({ name, variant, slug }) {
   return (
     <Link href={`/tag/${slug}`}>
       <a
-        className={`bg-gray-200 px-2 py-1 rounded-xl text-gray-600 text-sm hover:underline ${additionalClasses}`}
+        className={`bg-gray-100 px-2 py-1 rounded-md text-gray-600 text-sm hover:bg-gray-200 hover:text-black border border-gray-100 hover:border-gray-300 ${additionalClasses}`}
       >
         {name}
       </a>

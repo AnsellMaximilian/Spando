@@ -11,11 +11,11 @@ export default function Header({ home, posts }) {
           </a>
         </Link>
         <ul className="flex items-center ml-3">
-          <li className="ml-3 text-gray-600 hover:text-black">
+          {/* <li className="ml-3 text-gray-600 hover:text-black">
             <Link href="/">
               <a className={home ? "text-black font-semibold" : ""}>Home</a>
             </Link>
-          </li>
+          </li> */}
           <li className="ml-3 text-gray-600 hover:text-black">
             <Link href="/posts">
               <a className={posts ? "text-black font-semibold" : ""}>Posts</a>
