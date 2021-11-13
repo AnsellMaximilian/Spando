@@ -1,11 +1,13 @@
 import { createClient } from "contentful";
+import { useRouter } from "next/router";
 
 import Layout from "../../components/Layout";
 import PostCard from "../../components/Blog/PostCard";
 import Panel from "../../components/Panel";
 import PostLinkList from "../../components/Blog/PostLinkList";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
+  const searchQuery = context.query.q;
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -13,7 +15,7 @@ export async function getStaticProps(context) {
 
   const posts = await client.getEntries({
     content_type: "blogPost",
-    // skip: 50,
+    query: searchQuery,
   });
 
   const tags = await client.getEntries({
@@ -23,15 +25,19 @@ export async function getStaticProps(context) {
     props: {
       posts: posts.items,
       tags: tags.items,
+      searchQuery,
     },
   };
 }
 
-export default function PostList({ posts, tags }) {
-  // console.log({ posts, tags });
+export default function PostList({ posts, tags, searchQuery }) {
+  console.log(searchQuery);
   return (
     <Layout posts>
       <div className="container px-4 mx-auto mt-4 grid grid-cols-12 gap-4">
+        <Panel classes="col-span-12 p-4">
+          <h1 className="text-2xl font-bold">Search for: {searchQuery}</h1>
+        </Panel>
         {posts.length > 0 ? (
           <main className="grid grid-cols-12 gap-4 col-span-12 lg:col-span-8">
             {posts.map((post, index) => {

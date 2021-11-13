@@ -8,7 +8,7 @@ export default function Search() {
   const router = useRouter();
   const onSubmit = (e) => {
     e.preventDefault();
-    router.push(`/posts?s=${query}`);
+    router.push(`/posts/search?q=${query}`);
   };
   return (
     <form onSubmit={onSubmit} className="relative rounded-md group">
