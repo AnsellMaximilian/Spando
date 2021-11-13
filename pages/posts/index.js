@@ -34,21 +34,6 @@ export default function PostList({ posts, tags }) {
   return (
     <Layout posts>
       <div className="container px-4 mx-auto mt-4 grid grid-cols-12 gap-4">
-        <Panel classes="col-span-12 p-4">
-          <article className="">
-            {/* <div className="text-2xl font-bold">Browse by Tags</div> */}
-            <div className="flex flex-wrap gap-2">
-              {tags.map((tag) => {
-                const {
-                  sys: { id },
-                  fields: { name },
-                } = tag;
-                return <Tag key={id} name={name} variant="big" />;
-              })}
-            </div>
-          </article>
-        </Panel>
-
         {posts.length > 0 ? (
           <main className="grid grid-cols-12 gap-4 col-span-12 lg:col-span-8">
             {posts.map((post, index) => {
@@ -73,7 +58,7 @@ export default function PostList({ posts, tags }) {
             Sorry, there are no more posts.
           </div>
         )}
-        <Panel classes="col-span-12 lg:col-span-4 p-4">
+        <Panel classes="col-span-12 lg:col-span-4">
           <aside>
             <PostLinkList
               listTitle="Bagus untuk Pemula"
@@ -82,7 +67,7 @@ export default function PostList({ posts, tags }) {
                   (tag) => tag.fields.name.toLowerCase() === "pemula"
                 )
               )}
-              listItemClasses="col-span-12 md:col-span-6 lg:col-span-12"
+              listItemClasses="col-span-12 md:col-span-6 lg:col-span-12 border-b border-gray-200 last:border-b-0"
             />
           </aside>
         </Panel>
