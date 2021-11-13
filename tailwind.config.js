@@ -13,8 +13,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      borderColor: ["hover"],
-      borderWidth: ["hover", "last"],
+      borderColor: ["hover", "focus"],
+      borderWidth: ["hover", "last", "focus"],
     },
   },
   plugins: [],

@@ -1,10 +1,11 @@
 import Link from "next/link";
 import BrandSVG from "./BrandSVG";
+import Search from "./Search";
 
 export default function Header({ home, posts }) {
   return (
     <header className="shadow-md">
-      <nav className="flex container mx-auto p-4">
+      <nav className="flex container mx-auto p-4 items-center">
         <Link href="/">
           <a>
             <BrandSVG />
@@ -22,6 +23,9 @@ export default function Header({ home, posts }) {
             </Link>
           </li>
         </ul>
+        <div className="ml-auto">
+          <Search />
+        </div>
       </nav>
     </header>
   );
