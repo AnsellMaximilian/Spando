@@ -6,8 +6,8 @@ export default function PostLink({ post }) {
   } = post;
   return (
     <Link href={`/posts/${slug}`}>
-      <a>
-        <article className="mb-4 group">
+      <a className="">
+        <article className="group p-4">
           <h2 className="text-xl font-bold group-hover:text-red-600">
             {title}
           </h2>

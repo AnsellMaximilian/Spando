@@ -15,7 +15,7 @@ export default function PostCard({
 }) {
   return (
     <Panel
-      classes={`relative col-span-12 ${featured ? "p-6" : "md:col-span-6"}`}
+      classes={`relative col-span-12 ${featured ? "p-6" : "md:col-span-6 p-4"}`}
     >
       <Link href={`/posts/${slug}`}>
         <a className="absolute inset-0"></a>

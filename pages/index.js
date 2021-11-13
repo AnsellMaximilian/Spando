@@ -31,9 +31,9 @@ export default function Home({ posts, tags }) {
         <div className="col-span-12 lg:col-span-8">
           <PostGrid posts={posts} />
         </div>
-        <Panel classes="col-span-12 lg:col-span-4">
-          <aside>
-            <article>
+        <aside className="col-span-12 lg:col-span-4">
+          <Panel>
+            <article className="p-4">
               <h3 className="text-xl font-semibold">Browse by Tags</h3>
               <div className="flex flex-wrap gap-2 mt-2">
                 {tags.map((tag) => {
@@ -41,23 +41,23 @@ export default function Home({ posts, tags }) {
                     sys: { id },
                     fields: { name, slug },
                   } = tag;
-                  return <Tag key={id} name={name} slug={slug} variant="big" />;
+                  return <Tag key={id} name={name} slug={slug} />;
                 })}
               </div>
             </article>
-            <div className="pt-8">
-              <PostLinkList
-                listTitle="Bagus untuk Pemula"
-                listItemClasses="col-span-12 md:col-span-6 lg:col-span-12"
-                posts={posts.filter((post) =>
-                  post.fields.tags.some(
-                    (tag) => tag.fields.name.toLowerCase() === "pemula"
-                  )
-                )}
-              />
-            </div>
-          </aside>
-        </Panel>
+          </Panel>
+          <Panel className="">
+            <PostLinkList
+              listTitle="Bagus untuk Pemula"
+              listItemClasses="col-span-12 md:col-span-6 lg:col-span-12 border-b border-gray-200 last:border-b-0"
+              posts={posts.filter((post) =>
+                post.fields.tags.some(
+                  (tag) => tag.fields.name.toLowerCase() === "pemula"
+                )
+              )}
+            />
+          </Panel>
+        </aside>
       </div>
     </Layout>
   );

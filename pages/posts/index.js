@@ -34,7 +34,7 @@ export default function PostList({ posts, tags }) {
   return (
     <Layout posts>
       <div className="container px-4 mx-auto mt-4 grid grid-cols-12 gap-4">
-        <Panel classes="col-span-12">
+        <Panel classes="col-span-12 p-4">
           <article className="">
             {/* <div className="text-2xl font-bold">Browse by Tags</div> */}
             <div className="flex flex-wrap gap-2">
@@ -73,7 +73,7 @@ export default function PostList({ posts, tags }) {
             Sorry, there are no more posts.
           </div>
         )}
-        <Panel classes="col-span-12 lg:col-span-4">
+        <Panel classes="col-span-12 lg:col-span-4 p-4">
           <aside>
             <PostLinkList
               listTitle="Bagus untuk Pemula"
