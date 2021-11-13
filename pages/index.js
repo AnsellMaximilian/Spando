@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import Panel from "../components/Panel";
 import PostGrid from "../components/Blog/PostGrid";
 import PostLinkList from "../components/Blog/PostLinkList";
+import Link from "next/link";
 
 export async function getStaticProps(context) {
   const posts = await client.getEntries({
@@ -33,9 +34,16 @@ export default function Home({ posts, tags }) {
         </div>
         <aside className="col-span-12 lg:col-span-4">
           <Panel>
-            <article className="p-4">
-              <h3 className="text-xl font-semibold">Browse by Tags</h3>
-              <div className="flex flex-wrap gap-2 mt-2">
+            <article className="">
+              <header className="p-4 border-b border-gray-200 flex items-center justify-between">
+                <h3 className="text-xl font-bold ">Browse by Tags</h3>
+                <Link href="/">
+                  <a className="font-semibold hover:text-red-600 text-sm">
+                    All tags
+                  </a>
+                </Link>
+              </header>
+              <div className="flex flex-wrap gap-2 p-4">
                 {tags.map((tag) => {
                   const {
                     sys: { id },
@@ -46,7 +54,7 @@ export default function Home({ posts, tags }) {
               </div>
             </article>
           </Panel>
-          <Panel className="">
+          <Panel classes="mt-2">
             <PostLinkList
               listTitle="Bagus untuk Pemula"
               listItemClasses="col-span-12 md:col-span-6 lg:col-span-12 border-b border-gray-200 last:border-b-0"
