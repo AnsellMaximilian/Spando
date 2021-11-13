@@ -49,8 +49,9 @@ export default function PostCard({
             <p className={`mt-2 ${featured ? "text-xl" : ""}`}>{excerpt}</p>
           </a>
         </Link>
-        <span className="text-sm text-gray-500 font-normal mt-2 uppercase">
-          {moment(date).fromNow()}
+        <span className="text-sm text-gray-500 font-normal mt-2">
+          {moment(date).format("DD MMM 'YY")}
+          {/* {moment(date).fromNow()} */}
         </span>
         <div className="flex gap-2 flex-wrap mt-2">
           {tags.map((tag) => (
