@@ -13,10 +13,15 @@ export default function Search() {
   return (
     <form onSubmit={onSubmit} className="relative rounded-md group">
       <input
-        className={`border group-hover:border-red-600 ${
-          isFocused ? "border-red-600" : "border-gray-400"
-        } py-1 pl-2 pr-8 rounded-md outline-none`}
-        style={isFocused ? { boxShadow: "0 0 0 1px rgba(220, 38, 38, 1)" } : {}}
+        className={`border group-hover:border-gray-400 border-gray-300 py-1 pl-2 pr-8 rounded-md outline-none`}
+        style={
+          isFocused
+            ? {
+                boxShadow: "0 0 0 1px rgba(220, 38, 38, 1)",
+                borderColor: "rgba(220, 38, 38, 1)",
+              }
+            : {}
+        }
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for posts..."
@@ -24,10 +29,7 @@ export default function Search() {
         onBlur={() => setIsFocused(false)}
       />
       <button
-        className={`absolute right-0 px-4 h-full hover:bg-gray-200 bg-gray-100 ${
-          isFocused ? "border-red-600" : "border-gray-400"
-        } rounded-md border group-hover:border-red-600`}
-        style={isFocused ? { boxShadow: "0 0 0 1px rgba(220, 38, 38, 1)" } : {}}
+        className={`absolute right-0 px-3 h-full rounded-md hover:text-red-600`}
       >
         <FaSearch />
       </button>
