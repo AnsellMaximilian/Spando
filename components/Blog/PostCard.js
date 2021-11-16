@@ -58,12 +58,7 @@ export default function PostCard({
         </span>
         <div className="flex gap-2 flex-wrap mt-2">
           {tags.map((tag) => (
-            <Tag
-              name={tag.fields.name}
-              slug={tag.fields.slug}
-              key={tag.sys.id}
-              variant={featured ? "big" : ""}
-            />
+            <Tag tag={tag} key={tag.sys.id} variant={featured ? "big" : ""} />
           ))}
         </div>
       </article>

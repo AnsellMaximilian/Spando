@@ -46,7 +46,7 @@ export default function PostList({ posts, tags }) {
                   slug={slug}
                   excerpt={excerpt}
                   date={date}
-                  tags={tags.map((tag) => tag.fields.name)}
+                  tags={tags}
                 />
               );
             })}

@@ -44,13 +44,9 @@ export default function Home({ posts, tags }) {
                 </Link>
               </header>
               <div className="flex flex-wrap gap-2 p-4">
-                {tags.map((tag) => {
-                  const {
-                    sys: { id },
-                    fields: { name, slug },
-                  } = tag;
-                  return <Tag key={id} name={name} slug={slug} />;
-                })}
+                {tags.map((tag) => (
+                  <Tag key={tag.sys.id} tag={tag} />
+                ))}
               </div>
             </article>
           </Panel>

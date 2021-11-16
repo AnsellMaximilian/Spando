@@ -29,13 +29,9 @@ export default function Home({ post }) {
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
-        {tags.map((tag) => {
-          const {
-            sys: { id },
-            fields: { name },
-          } = tag;
-          return <Tag name={name} key={id} />;
-        })}
+        {tags.map((tag) => (
+          <Tag tag={tag} key={tag.sys.id} />
+        ))}
       </div>
       <section className="mt-4">{reactRichTextRenderer(body)}</section>
     </article>

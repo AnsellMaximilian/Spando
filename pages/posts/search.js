@@ -31,7 +31,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function PostList({ posts, tags, searchQuery }) {
-  console.log(searchQuery);
   return (
     <Layout posts>
       <div className="container px-4 mx-auto mt-4 grid grid-cols-12 gap-4">
@@ -52,7 +51,7 @@ export default function PostList({ posts, tags, searchQuery }) {
                   slug={slug}
                   excerpt={excerpt}
                   date={date}
-                  tags={tags.map((tag) => tag.fields.name)}
+                  tags={tags}
                 />
               );
             })}
