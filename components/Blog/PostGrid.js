@@ -17,7 +17,7 @@ export default function PostGrid({ posts }) {
             excerpt={excerpt}
             slug={slug}
             date={date}
-            tags={tags.map((tag) => tag.fields.name)}
+            tags={tags}
             featured
           />
         ) : (
@@ -27,7 +27,7 @@ export default function PostGrid({ posts }) {
             slug={slug}
             excerpt={excerpt}
             date={date}
-            tags={tags.map((tag) => tag.fields.name)}
+            tags={tags}
           />
         );
       })}

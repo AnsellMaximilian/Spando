@@ -64,7 +64,7 @@ export default function Home({ posts, tags }) {
                   slug={slug}
                   excerpt={excerpt}
                   date={date}
-                  tags={tags.map((tag) => tag.fields.name)}
+                  tags={tags}
                 />
               );
             })}

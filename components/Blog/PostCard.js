@@ -3,6 +3,7 @@ import Link from "next/link";
 import Panel from "../Panel";
 import moment from "moment";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import defaultThumbnail from "../../public/images/default-thumbnail.jpg";
 
 export default function PostCard({
@@ -13,6 +14,8 @@ export default function PostCard({
   slug,
   featured = false,
 }) {
+  const router = useRouter();
+  const handleClick = (e) => router.push("/");
   return (
     <Panel
       classes={`relative col-span-12 ${featured ? "p-6" : "md:col-span-6 p-4"}`}
@@ -20,7 +23,7 @@ export default function PostCard({
       <Link href={`/posts/${slug}`}>
         <a className="absolute inset-0"></a>
       </Link>
-      <article className="relative">
+      <article className="relative" onClick={handleClick}>
         {featured && (
           <>
             <Link href={`/posts/${slug}`}>
@@ -55,7 +58,12 @@ export default function PostCard({
         </span>
         <div className="flex gap-2 flex-wrap mt-2">
           {tags.map((tag) => (
-            <Tag name={tag} key={tag} variant={featured ? "big" : ""} />
+            <Tag
+              name={tag.fields.name}
+              slug={tag.fields.slug}
+              key={tag.sys.id}
+              variant={featured ? "big" : ""}
+            />
           ))}
         </div>
       </article>
