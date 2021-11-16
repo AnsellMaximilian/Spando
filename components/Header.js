@@ -22,6 +22,11 @@ export default function Header({ home, posts }) {
               <a className={posts ? "text-black font-semibold" : ""}>Posts</a>
             </Link>
           </li>
+          <li className="ml-3 text-gray-600 hover:text-black">
+            <Link href="/posts">
+              <a className={posts ? "text-black font-semibold" : ""}>Tags</a>
+            </Link>
+          </li>
         </ul>
         <div className="ml-auto hidden md:block">
           <Search />
