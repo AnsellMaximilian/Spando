@@ -31,13 +31,20 @@ export default function Home({ posts, tags }) {
       <div className="container px-4 mx-auto mt-16 grid grid-cols-12 gap-4">
         <div className="col-span-12 lg:col-span-8">
           <PostGrid posts={posts} />
+          <div className="text-center mt-8">
+            <Link href="/posts">
+              <a className="bg-red-600 hover:bg-red-700 inline-block px-3 py-2 rounded-md text-white font-semibold text-md">
+                View more
+              </a>
+            </Link>
+          </div>
         </div>
         <aside className="col-span-12 lg:col-span-4">
           <Panel>
             <article className="">
               <header className="p-4 border-b border-gray-200 flex items-center justify-between">
                 <h3 className="text-xl font-bold ">Browse by Tags</h3>
-                <Link href="/">
+                <Link href="/tags">
                   <a className="font-semibold hover:text-red-600 text-sm">
                     All tags
                   </a>

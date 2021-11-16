@@ -31,16 +31,6 @@ export default function PostGrid({ posts }) {
           />
         );
       })}
-      <div className="col-span-12 text-center">
-        <Link href="/posts">
-          {/* <a className="mt-5 bg-red-600 hover:bg-red-700 inline-block px-3 py-2 rounded-md text-white font-semibold text-lg">
-            View more posts
-          </a> */}
-          <a className="mt-2 inline-block px-3 hover:text-red-600 font-bold text-md">
-            View more posts
-          </a>
-        </Link>
-      </div>
     </main>
   );
 }

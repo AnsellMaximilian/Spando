@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BrandSVG from "./BrandSVG";
 import Search from "./Search";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 
 export default function Header({ home, posts, tags }) {
   return (
@@ -28,8 +29,13 @@ export default function Header({ home, posts, tags }) {
             </Link>
           </li>
         </ul>
-        <div className="ml-auto hidden md:block">
-          <Search />
+        <div className="ml-auto flex items-center">
+          <div className="mr-3">
+            <FaRegBookmark className="hover:text-red-600" title="Saved posts" />
+          </div>
+          <div className="hidden md:block">
+            <Search />
+          </div>
         </div>
       </nav>
     </header>
