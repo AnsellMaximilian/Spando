@@ -23,7 +23,7 @@ export default function Header({ home, posts }) {
             </Link>
           </li>
         </ul>
-        <div className="ml-auto">
+        <div className="ml-auto hidden md:block">
           <Search />
         </div>
       </nav>

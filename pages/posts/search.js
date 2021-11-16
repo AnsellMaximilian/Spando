@@ -5,6 +5,7 @@ import Layout from "../../components/Layout";
 import PostCard from "../../components/Blog/PostCard";
 import Panel from "../../components/Panel";
 import PostLinkList from "../../components/Blog/PostLinkList";
+import Search from "../../components/Search";
 
 export async function getServerSideProps(context) {
   const searchQuery = context.query.q;
@@ -25,7 +26,7 @@ export async function getServerSideProps(context) {
     props: {
       posts: posts.items,
       tags: tags.items,
-      searchQuery,
+      searchQuery: searchQuery || null,
     },
   };
 }
@@ -35,7 +36,20 @@ export default function PostList({ posts, tags, searchQuery }) {
     <Layout posts>
       <div className="container px-4 mx-auto mt-4 grid grid-cols-12 gap-4">
         <Panel classes="col-span-12 p-4">
-          <h1 className="text-2xl font-bold">Search for: {searchQuery}</h1>
+          {searchQuery ? (
+            <h1 className="text-2xl font-bold">
+              Searching for &#34;{searchQuery}&#34;
+            </h1>
+          ) : (
+            <div className="flex flex-col items-center">
+              <h1 className="text-2xl font-bold mb-4">
+                Search for posts by their contents.
+              </h1>
+              <div className="w-full md:w-96">
+                <Search fullWidth />
+              </div>
+            </div>
+          )}
         </Panel>
         {posts.length > 0 ? (
           <main className="grid grid-cols-12 gap-4 col-span-12 lg:col-span-8">
@@ -58,7 +72,7 @@ export default function PostList({ posts, tags, searchQuery }) {
           </main>
         ) : (
           <div className="col-span-12 text-center text-2xl font-bold mt-10">
-            Sorry, there are no more posts.
+            Sorry, your search returned no results.
           </div>
         )}
         <Panel classes="col-span-12 lg:col-span-4">

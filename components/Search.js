@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useRouter } from "next/router";
 
-export default function Search() {
+export default function Search({ fullWidth }) {
   const [query, setQuery] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const router = useRouter();
@@ -11,9 +11,14 @@ export default function Search() {
     if (query) router.push(`/posts/search?q=${query}`);
   };
   return (
-    <form onSubmit={onSubmit} className="relative rounded-md group">
+    <form
+      onSubmit={onSubmit}
+      className={`relative rounded-md group inline-block ${
+        fullWidth ? "w-full" : ""
+      }`}
+    >
       <input
-        className={`border group-hover:border-gray-400 border-gray-300 py-1 pl-2 pr-8 rounded-md outline-none`}
+        className={`border group-hover:border-gray-400 border-gray-300 py-1 pl-2 pr-8 rounded-md outline-none w-full`}
         style={
           isFocused
             ? {
