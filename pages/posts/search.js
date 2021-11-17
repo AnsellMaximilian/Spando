@@ -59,14 +59,15 @@ export default function PostList({ posts, tags, searchQuery }) {
                 fields: { title, excerpt, publishDate: date, tags, slug },
               } = post;
               return (
-                <PostCard
-                  key={id}
-                  title={title}
-                  slug={slug}
-                  excerpt={excerpt}
-                  date={date}
-                  tags={tags}
-                />
+                <Panel key={id} classes="col-span-12 md:col-span-6">
+                  <PostCard
+                    title={title}
+                    slug={slug}
+                    excerpt={excerpt}
+                    date={date}
+                    tags={tags}
+                  />
+                </Panel>
               );
             })}
           </main>
