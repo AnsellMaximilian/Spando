@@ -7,6 +7,7 @@ export default function PostGrid({
   posts,
   featuredSpanClass = "col-span-12",
   spanClass = "col-span-12 md:col-span-6",
+  extraItem,
 }) {
   return (
     <main className="grid grid-cols-12 gap-4">
@@ -38,6 +39,11 @@ export default function PostGrid({
           </Panel>
         );
       })}
+      {extraItem && (
+        <Panel classes={spanClass} key="extra-post-grid-item">
+          {extraItem}
+        </Panel>
+      )}
     </main>
   );
 }

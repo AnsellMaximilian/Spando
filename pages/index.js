@@ -30,14 +30,23 @@ export default function Home({ posts, tags }) {
       <Hero />
       <div className="container px-4 mx-auto mt-16 grid grid-cols-12 gap-4">
         <div className="col-span-12 lg:col-span-8">
-          <PostGrid posts={posts} />
-          <div className="text-center mt-8">
+          <PostGrid
+            posts={posts}
+            extraItem={
+              <Link href="/posts">
+                <a className="flex items-center justify-center px-3 py-2 bg-red-600 hover:bg-red-700 block h-full w-full rounded-md text-white font-semibold text-md md:text-2xl">
+                  <span>View more</span>
+                </a>
+              </Link>
+            }
+          />
+          {/* <div className="text-center mt-8">
             <Link href="/posts">
               <a className="bg-red-600 hover:bg-red-700 inline-block px-3 py-2 rounded-md text-white font-semibold text-md">
                 View more
               </a>
             </Link>
-          </div>
+          </div> */}
         </div>
         <aside className="col-span-12 lg:col-span-4">
           <Panel>
