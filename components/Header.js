@@ -8,8 +8,9 @@ export default function Header({ home, posts, tags }) {
     <header className="shadow-md">
       <nav className="flex container mx-auto p-4 items-center">
         <Link href="/">
-          <a>
+          <a className="flex items-center">
             <BrandSVG />
+            {/* <span className="ml-2 font-bold text-xl">Spando</span> */}
           </a>
         </Link>
         <ul className="flex items-center ml-3">
@@ -18,16 +19,16 @@ export default function Header({ home, posts, tags }) {
               <a className={home ? "text-black font-semibold" : ""}>Home</a>
             </Link>
           </li> */}
-          <li className="ml-3 text-gray-600 hover:text-black">
+          {/* <li className="ml-3 text-gray-600 hover:text-black">
             <Link href="/posts">
               <a className={posts ? "text-black font-semibold" : ""}>Posts</a>
             </Link>
-          </li>
-          <li className="ml-3 text-gray-600 hover:text-black">
+          </li> */}
+          {/* <li className="ml-3 text-gray-600 hover:text-black">
             <Link href="/tags">
               <a className={tags ? "text-black font-semibold" : ""}>Tags</a>
             </Link>
-          </li>
+          </li> */}
         </ul>
         <div className="ml-auto flex items-center">
           <div className="mr-3">
