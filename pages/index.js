@@ -11,6 +11,7 @@ import Link from "next/link";
 export async function getStaticProps(context) {
   const posts = await client.getEntries({
     content_type: "blogPost",
+    limit: 10,
   });
 
   const tags = await client.getEntries({
