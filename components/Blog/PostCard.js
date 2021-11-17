@@ -17,9 +17,7 @@ export default function PostCard({
   const router = useRouter();
   const handleClick = (e) => router.push("/");
   return (
-    <Panel
-      classes={`relative col-span-12 ${featured ? "p-6" : "md:col-span-6 p-4"}`}
-    >
+    <div className={`relative ${featured ? "p-6" : "p-4"}`}>
       <Link href={`/posts/${slug}`}>
         <a className="absolute inset-0"></a>
       </Link>
@@ -27,7 +25,7 @@ export default function PostCard({
         {featured && (
           <>
             <Link href={`/posts/${slug}`}>
-              <a className="overflow-hidden h-80 relative block">
+              <a className="overflow-hidden h-48 md:h-80 relative block">
                 <Image
                   src={defaultThumbnail}
                   alt="Blog Post Thumbnail"
@@ -62,6 +60,6 @@ export default function PostCard({
           ))}
         </div>
       </article>
-    </Panel>
+    </div>
   );
 }

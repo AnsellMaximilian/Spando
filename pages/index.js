@@ -51,7 +51,7 @@ export default function Home({ posts, tags }) {
                 </Link>
               </header>
               <div className="flex flex-wrap gap-2 p-4">
-                {tags.map((tag) => (
+                {tags.slice(0, 8).map((tag) => (
                   <Tag key={tag.sys.id} tag={tag} />
                 ))}
               </div>
