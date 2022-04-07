@@ -1,5 +1,5 @@
 import { createClient } from "contentful";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 import Layout from "../../components/Layout";
 import PostCard from "../../components/Blog/PostCard";
@@ -9,6 +9,7 @@ import Search from "../../components/Search";
 
 export async function getServerSideProps(context) {
   const searchQuery = context.query.q;
+  const sort = context.query.sort;
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -17,29 +18,62 @@ export async function getServerSideProps(context) {
   const posts = await client.getEntries({
     content_type: "blogPost",
     query: searchQuery,
+    order: !sort
+      ? undefined
+      : sort === "newest"
+      ? "sys.createdAt"
+      : "-sys.createdAt",
   });
 
-  const tags = await client.getEntries({
-    content_type: "tag",
-  });
   return {
     props: {
       posts: posts.items,
-      tags: tags.items,
+      sort: sort || null,
       searchQuery: searchQuery || null,
     },
   };
 }
 
-export default function PostList({ posts, tags, searchQuery }) {
+export default function PostList({ posts, searchQuery, sort }) {
   return (
     <Layout posts>
       <div className="container px-4 mx-auto mt-4 grid grid-cols-12 gap-4">
-        <Panel classes="col-span-12 p-4">
+        <Panel classes="col-span-12 px-4">
           {searchQuery ? (
-            <h1 className="text-2xl font-bold">
-              Searching for &#34;{searchQuery}&#34;
-            </h1>
+            <div className="flex justify-between items-center">
+              <h1 className="text-2xl font-bold">
+                Hasil cari &#34;{searchQuery}&#34;
+              </h1>
+              <div>
+                <Link href={`/posts/search?q=${searchQuery}`}>
+                  <a
+                    className={`inline-block py-4 px-2 border-primary ${
+                      sort === null ? "border-b-4 font-bold" : ""
+                    }`}
+                  >
+                    Semua
+                  </a>
+                </Link>
+                <Link href={`/posts/search?q=${searchQuery}&sort=newest`}>
+                  <a
+                    className={`inline-block py-4 px-2 border-primary ${
+                      sort === "newest" ? "border-b-4 font-bold" : ""
+                    }`}
+                  >
+                    Terbaru
+                  </a>
+                </Link>
+                <Link href={`/posts/search?q=${searchQuery}&sort=oldest`}>
+                  <a
+                    className={`inline-block py-4 px-2 border-primary ${
+                      sort === "oldest" ? "border-b-4 font-bold" : ""
+                    }`}
+                  >
+                    Terlama
+                  </a>
+                </Link>
+              </div>
+            </div>
           ) : (
             <div className="flex flex-col items-center">
               <h1 className="text-2xl font-bold mb-4">
