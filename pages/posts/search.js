@@ -21,8 +21,8 @@ export async function getServerSideProps(context) {
     order: !sort
       ? undefined
       : sort === "newest"
-      ? "sys.createdAt"
-      : "-sys.createdAt",
+      ? "-sys.createdAt"
+      : "sys.createdAt",
   });
 
   return {
