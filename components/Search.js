@@ -18,15 +18,15 @@ export default function Search({ fullWidth }) {
       }`}
     >
       <input
-        className={`border group-hover:border-gray-400 border-gray-300 py-1 pl-2 pr-8 rounded-md outline-none w-full`}
-        style={
-          isFocused
-            ? {
-                boxShadow: "0 0 0 1px rgba(220, 38, 38, 1)",
-                borderColor: "rgba(220, 38, 38, 1)",
-              }
-            : {}
-        }
+        className={`border group-hover:border-gray-400 border-gray-300 py-1 pl-2 pr-8 rounded-md outline-none w-full focus:ring-2 ring-primary`}
+        // style={
+        //   isFocused
+        //     ? {
+        //         boxShadow: "0 0 0 1px rgba(220, 38, 38, 1)",
+        //         borderColor: "rgba(220, 38, 38, 1)",
+        //       }
+        //     : {}
+        // }
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for posts..."
@@ -34,7 +34,7 @@ export default function Search({ fullWidth }) {
         onBlur={() => setIsFocused(false)}
       />
       <button
-        className={`absolute right-0 px-3 h-full rounded-md hover:text-red-600`}
+        className={`absolute right-0 px-3 h-full rounded-md hover:text-primary`}
       >
         <FaSearch />
       </button>

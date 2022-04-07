@@ -35,19 +35,12 @@ export default function Home({ posts, tags }) {
             posts={posts}
             extraItem={
               <Link href="/posts">
-                <a className="flex items-center justify-center px-3 py-2 bg-red-600 hover:bg-red-700 block h-full w-full rounded-md text-white font-semibold text-md md:text-2xl">
+                <a className="flex items-center justify-center px-3 py-2 bg-primary hover:bg-red-700 h-full w-full rounded-md text-white font-semibold text-md md:text-2xl">
                   <span>View more</span>
                 </a>
               </Link>
             }
           />
-          {/* <div className="text-center mt-8">
-            <Link href="/posts">
-              <a className="bg-red-600 hover:bg-red-700 inline-block px-3 py-2 rounded-md text-white font-semibold text-md">
-                View more
-              </a>
-            </Link>
-          </div> */}
         </div>
         <aside className="col-span-12 lg:col-span-4">
           <Panel>
@@ -55,7 +48,7 @@ export default function Home({ posts, tags }) {
               <header className="p-4 border-b border-gray-200 flex items-center justify-between">
                 <h3 className="text-xl font-bold ">Browse by Tags</h3>
                 <Link href="/tags">
-                  <a className="font-semibold hover:text-red-600 text-sm">
+                  <a className="font-semibold hover:text-primary text-sm">
                     All tags
                   </a>
                 </Link>

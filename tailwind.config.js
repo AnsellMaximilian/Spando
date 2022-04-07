@@ -3,6 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        primary: "#FF0000",
+        "primary-dark": "#AA151B",
+      },
       backgroundImage: {
         "hero-md": "url('/images/hero-md.svg')",
       },

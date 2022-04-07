@@ -48,7 +48,7 @@ export default function PostList({ posts, tags }) {
             </div>
             <div className="text-center mt-6">
               <Link href="/">
-                <a className="bg-red-600 hover:bg-red-700 inline-block px-3 py-2 rounded-md text-white font-semibold text-md">
+                <a className="bg-primary hover:bg-red-700 inline-block px-3 py-2 rounded-md text-white font-semibold text-md">
                   Back to homepage
                 </a>
               </Link>

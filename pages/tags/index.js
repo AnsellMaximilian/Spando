@@ -32,7 +32,7 @@ export default function PostList({ tags }) {
               <Link href={`/tags/${tag.fields.slug}`}>
                 <a className="block flex-1">
                   <article className="p-4">
-                    <h2 className="font-bold group-hover:text-red-600 text-xl">
+                    <h2 className="font-bold group-hover:text-primary text-xl">
                       {tag.fields.name}
                     </h2>
                     <p>{tag.fields.description}</p>

@@ -32,7 +32,7 @@ export default function Header({ home, posts, tags }) {
         </ul>
         <div className="ml-auto flex items-center">
           <div className="mr-3">
-            <FaRegBookmark className="hover:text-red-600" title="Saved posts" />
+            <FaRegBookmark className="hover:text-primary" title="Saved posts" />
           </div>
           <div className="hidden md:block">
             <Search />

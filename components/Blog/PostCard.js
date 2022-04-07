@@ -35,7 +35,7 @@ export default function PostCard({
                 />
               </a>
             </Link>
-            <div className="text-red-600 text-xl font-bold mt-3">FEATURED</div>
+            <div className="text-primary text-xl font-bold mt-3">FEATURED</div>
           </>
         )}
         <Link href={`/posts/${slug}`}>
@@ -43,7 +43,7 @@ export default function PostCard({
             <h2
               className={`text-${
                 featured ? "4" : "2"
-              }xl font-bold hover:text-red-600`}
+              }xl font-bold hover:text-primary`}
             >
               {title}
             </h2>
