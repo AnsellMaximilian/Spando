@@ -53,8 +53,8 @@ export default function Home({ post, tags, similarPosts }) {
         <main className="col-span-12 md:col-span-8">
           <Post post={post} />
         </main>
-        <Panel classes="col-span-12 md:col-span-4">
-          <aside className="sticky top-0">
+        <aside className="col-span-12 md:col-span-4">
+          <Panel classes="sticky top-4">
             {similarPosts.length > 0 && (
               <PostLinkList
                 posts={similarPosts}
@@ -62,8 +62,8 @@ export default function Home({ post, tags, similarPosts }) {
                 listItemClasses="col-span-12"
               />
             )}
-          </aside>
-        </Panel>
+          </Panel>
+        </aside>
       </div>
     </Layout>
   );

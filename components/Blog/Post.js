@@ -12,7 +12,7 @@ export default function Home({ post }) {
   } = post;
   // console.log(body);
   return (
-    <article className="max-w-xl ml-auto">
+    <article className="md:max-w-2xl ml-auto">
       <h1 className="font-bold text-4xl">{title}</h1>
       <div className="flex justify-between items-center mt-1">
         <div className="text-gray-600">{moment(publishDate).fromNow()}</div>
