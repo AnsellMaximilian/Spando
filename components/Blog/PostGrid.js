@@ -39,11 +39,7 @@ export default function PostGrid({
           </Panel>
         );
       })}
-      {extraItem && (
-        <Panel classes={spanClass} key="extra-post-grid-item">
-          {extraItem}
-        </Panel>
-      )}
+      {extraItem}
     </main>
   );
 }
