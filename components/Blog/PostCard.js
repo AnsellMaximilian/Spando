@@ -21,7 +21,7 @@ export default function PostCard({
       <Link href={`/posts/${slug}`}>
         <a className="absolute inset-0"></a>
       </Link>
-      <article className="relative" onClick={handleClick}>
+      <article className="relative">
         {featured && (
           <>
             <Link href={`/posts/${slug}`}>
