@@ -44,12 +44,12 @@ export default function PostList({ posts, tags }) {
         ) : (
           <Panel classes="col-span-12 mt-4 px-4 py-16">
             <div className="text-center text-2xl font-bold">
-              Sorry, there are no more posts.
+              Maaf, tidak ada post lagi.
             </div>
             <div className="text-center mt-6">
               <Link href="/">
                 <a className="bg-primary hover:bg-red-700 inline-block px-3 py-2 rounded-md text-white font-semibold text-md">
-                  Back to homepage
+                  Kembali
                 </a>
               </Link>
             </div>
