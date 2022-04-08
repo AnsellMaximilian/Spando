@@ -7,6 +7,7 @@ import Panel from "../components/Panel";
 import PostGrid from "../components/Blog/PostGrid";
 import PostLinkList from "../components/Blog/PostLinkList";
 import Link from "next/link";
+import BrowseByTag from "../components/Blog/BrowseByTag";
 
 export async function getStaticProps(context) {
   const posts = await client.getEntries({
@@ -44,21 +45,7 @@ export default function Home({ posts, tags }) {
         </div>
         <aside className="col-span-12 lg:col-span-4">
           <Panel>
-            <article className="">
-              <header className="p-4 border-b border-gray-200 flex items-center justify-between">
-                <h3 className="text-xl font-bold ">Browse by Tags</h3>
-                <Link href="/tags">
-                  <a className="font-semibold hover:text-primary text-sm">
-                    All tags
-                  </a>
-                </Link>
-              </header>
-              <div className="flex flex-wrap gap-2 p-4">
-                {tags.slice(0, 8).map((tag) => (
-                  <Tag key={tag.sys.id} tag={tag} />
-                ))}
-              </div>
-            </article>
+            <BrowseByTag tags={tags} />
           </Panel>
           <Panel classes="mt-2">
             <PostLinkList

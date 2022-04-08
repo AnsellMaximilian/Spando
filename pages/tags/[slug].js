@@ -87,7 +87,7 @@ export default function Home({ posts, tag, tags, slug }) {
           </main>
         ) : (
           <div className="col-span-12 text-center text-2xl font-bold mt-10">
-            Sorry, there are no more posts.
+            Maaf, post kosong.
           </div>
         )}
       </div>

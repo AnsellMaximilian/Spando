@@ -5,6 +5,7 @@ import Layout from "../../components/Layout";
 import PostCard from "../../components/Blog/PostCard";
 import Panel from "../../components/Panel";
 import PostLinkList from "../../components/Blog/PostLinkList";
+import BrowseByTag from "../../components/Blog/BrowseByTag";
 import Search from "../../components/Search";
 
 export async function getServerSideProps(context) {
@@ -25,8 +26,13 @@ export async function getServerSideProps(context) {
       : "sys.createdAt",
   });
 
+  const tags = await client.getEntries({
+    content_type: "tag",
+  });
+
   return {
     props: {
+      tags: tags.items,
       posts: posts.items,
       sort: sort || null,
       searchQuery: searchQuery || null,
@@ -34,7 +40,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function PostList({ posts, searchQuery, sort }) {
+export default function PostList({ posts, searchQuery, sort, tags }) {
   return (
     <Layout posts>
       <div className="container px-4 mx-auto mt-4 grid grid-cols-12 gap-4">
@@ -110,8 +116,11 @@ export default function PostList({ posts, searchQuery, sort }) {
             Maaf, kata kunci tidak cocok dengan post apapun.
           </div>
         )}
-        <Panel classes="col-span-12 lg:col-span-4">
-          <aside>
+        <aside className="col-span-12 lg:col-span-4">
+          <Panel>
+            <BrowseByTag tags={tags} />
+          </Panel>
+          <Panel classes="mt-2">
             <PostLinkList
               listTitle="Bagus untuk Pemula"
               posts={posts.filter((post) =>
@@ -121,8 +130,8 @@ export default function PostList({ posts, searchQuery, sort }) {
               )}
               listItemClasses="col-span-12 md:col-span-6 lg:col-span-12 border-b border-gray-200 last:border-b-0"
             />
-          </aside>
-        </Panel>
+          </Panel>
+        </aside>
       </div>
     </Layout>
   );
