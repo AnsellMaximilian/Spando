@@ -37,7 +37,7 @@ export default function Home({ posts, tags }) {
             extraItem={
               <Link href="/posts">
                 <a className="col-span-12 flex items-center justify-center px-3 py-2 bg-primary hover:bg-red-700 h-full w-full rounded-md text-white font-semibold text-md md:text-2xl">
-                  <span>View more</span>
+                  <span>Lihat yang Lain</span>
                 </a>
               </Link>
             }
